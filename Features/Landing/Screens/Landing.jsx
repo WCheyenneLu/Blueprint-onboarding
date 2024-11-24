@@ -1,20 +1,15 @@
-import {
-  Button, Text, View,
-} from 'react-native';
-import PropTypes from 'prop-types';
+import { Button, Text, View } from "react-native";
+import PropTypes from "prop-types";
 
 export default function Landing({ navigation }) {
   const navigateToFeed = () => {
-    navigation.navigate('Feed');
+    navigation.navigate("Feed");
   };
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Landing Page</Text>
-      <Button
-        title="To Feed"
-        onPress={navigateToFeed}
-      />
+      <Button title="To Feed" onPress={navigateToFeed} />
     </View>
   );
 }

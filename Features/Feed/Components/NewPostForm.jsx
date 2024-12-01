@@ -2,16 +2,19 @@ import { Button, TextInput } from "react-native";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-export default function NewPostForm() {
+export default function NewPostForm({ addNewPost }) {
   const [username, setUsername] = useState("");
   const [body, setBody] = useState("");
+
+  NewPostForm.propTypes = {
+    addNewPost: PropTypes.func.isRequired,
+  };
 
   const handleAddPost = () => {
     addNewPost({ username, body });
     setUsername("");
     setBody("");
   };
-
   return (
     <>
       <TextInput
@@ -19,6 +22,7 @@ export default function NewPostForm() {
         onChangeText={setUsername}
         value={username}
       />
+
       <TextInput
         placeholder="What are you Printing?"
         onChangeText={setBody}
@@ -28,7 +32,3 @@ export default function NewPostForm() {
     </>
   );
 }
-
-NewPostForm.propTypes = {
-  addNewPost: PropTypes.func.isRequired,
-};
